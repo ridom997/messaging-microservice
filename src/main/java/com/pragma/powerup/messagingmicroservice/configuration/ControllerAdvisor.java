@@ -1,5 +1,6 @@
 package com.pragma.powerup.messagingmicroservice.configuration;
 
+import com.pragma.powerup.messagingmicroservice.adapters.driven.sms.twilio.eceptions.TwilioUnexpectedErrorException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -43,6 +44,11 @@ public class ControllerAdvisor {
     public ResponseEntity<Map<String, String>> handleAuthenticationException(AuthenticationException noDataFoundException) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, WRONG_CREDENTIALS_MESSAGE));
+    }
+    @ExceptionHandler(TwilioUnexpectedErrorException.class)
+    public ResponseEntity<Map<String, String>> handleTwilioUnexpectedErrorException(TwilioUnexpectedErrorException twilioUnexpectedErrorException) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(Collections.singletonMap(RESPONSE_ERROR_MESSAGE_KEY, "Something wrong happened!"));
     }
 
 }
