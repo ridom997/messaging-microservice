@@ -23,7 +23,7 @@ To get a local copy up and running follow these steps.
 
 * JDK 17 [https://jdk.java.net/java-se-ri/17](https://jdk.java.net/java-se-ri/17)
 * Gradle [https://gradle.org/install/](https://gradle.org/install/)
-* MongoDB
+* Account in twilio.
 
 ### Recommended Tools
 * IntelliJ Community [https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
@@ -32,6 +32,25 @@ To get a local copy up and running follow these steps.
 ### Installation
 
 1. Clone the repository
+3. Create the follow environment variables (with the values of your twilio)
+   1. twilioAccountSID
+   2. twilioAuthToken
+   3. twilioMessagingServiceSID
+   4. twilioRegisteredPhone
+
+<!-- USAGE -->
+## Usage
+
+1. Right-click the class MessagingMicroserviceApplication and choose Run
+3. start ["foodcourt-microservice"](https://github.com/ridom997/foodcourt-microservice) if the user history indicates it.
+4.  Open [http://localhost:8093/swagger-ui/index.html](http://localhost:8093/swagger-ui/index.html) in your web browser
+5. Test the endpoints (view guide)
+
+<!-- GUIDE -->
+## GUIDE (SPANISH)
+
+### HU14:
++ Se hizo un endpoint "/sms" el cual debe ser consumido estando autenticado como empleado (employee).
 
 ## Tests
 

@@ -5,7 +5,6 @@ import com.pragma.powerup.messagingmicroservice.configuration.security.jwt.JwtTo
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -33,11 +32,7 @@ public class MainSecurity {
         http.cors().and().csrf().disable()
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers( "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/actuator/health").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/restaurants").hasRole("ADMIN")
-                        .requestMatchers("/dishes" , "/dishes/{id}", "/restaurants/{id}/validateOwner", "/dishes/{id}/status").hasRole("OWNER")
-                        .requestMatchers(HttpMethod.GET,"/restaurants","/restaurants/{idRestaurant}/dishes").hasRole("CLIENT")
-                        .requestMatchers(HttpMethod.POST,"/orders").hasRole("CLIENT")
-                        .requestMatchers("/restaurants/{idRestaurant}/orders").hasRole("EMPLOYEE")
+                        .requestMatchers("/sms").hasRole("EMPLOYEE")
                         .anyRequest().authenticated()
                 )
                 .formLogin().disable()
