@@ -19,9 +19,5 @@ public class Constants {
     public static final String SWAGGER_TERMS_OF_SERVICE_MESSAGE = "http://swagger.io/terms/";
     public static final String AUTHORIZATION_HEADER = "Authorization";
     public static final String ERROR_PARSING_MESSAGE = "Error parsing a request variable";
-    public static final String EMPLOYEE_ROLE_NAME = "ROLE_EMPLOYEE";
-    public static final String PAGE_NOT_VALID_MESSAGE = "The Page index is not present or has a negative value";
-    public static final String SIZE_PAGE_NOT_VALID_MESSAGE = "The Page size is not present or is <= 0";
-    public static final String NOT_PRESENT_MESSAGE = " is not present";
     public static final String PHONE_REGEX = "^\\+?\\d{1,12}$";
 }
